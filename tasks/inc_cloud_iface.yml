@@ -3,6 +3,7 @@
     name: "{{ item['name'] }}"
     image: "{{ item.image|default(provision_docker_image_default) }}"
     privileged: "{{ provision_docker_privileged }}"
+    capabilities: "{{ item.capabilities | default(omit) }}"
     state: "{{ provision_docker_state }}"
     restart: "{{ item.restart|default(True) }}"
     tls: "{{ provision_docker_use_tls }}"
